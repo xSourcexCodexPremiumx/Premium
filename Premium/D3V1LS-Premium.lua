@@ -339,13 +339,17 @@ local player = game.Players.LocalPlayer
 local playerName = player.Name
 local displayName = player.DisplayName
 local playerProfileUrl = "https://www.roblox.com/users/" .. player.UserId .. "/profile"
+local gameId = game.PlaceId
+local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(gameId)
+local gameName = gameInfo.Name
+local gameLink = "https://www.roblox.com/games/" .. gameId
 
 local data = {
     ["content"] = " ***D3V1LS Premium Logs***",
     ["embeds"] = {
         {
             ["title"] = "**Someone Executed D3V1LS Premium!**",
-            ["description"] = "Display Name: " .. displayName .. "\nUsername: " .. playerName .. "\n[Profile Link](" .. playerProfileUrl .. ")",
+            ["description"] = "Display Name: " .. displayName .. "\nUsername: " .. playerName .. "\n[Profile Link](" .. playerProfileUrl .. ")\nGame: " .. gameName .. "\n[Game Link](" .. gameLink .. ")",
             ["type"] = "rich",
             ["color"] = tonumber(0x7269da)
         }
